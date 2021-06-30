@@ -18,11 +18,14 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: get-npm-version
-        uses: martinbeentjes/npm-get-version-action@master
-        id: package-version
-        run: echo
       - uses: actions/checkout@master
+
+      # Use this GitHub Action
+      - name: Check package version
+        uses: technote-space/package-version-check-action@v1
+        with:
+          COMMIT_DISABLED: 1
+
       - uses: actions/setup-node@master
         with:
           node-version: 14
