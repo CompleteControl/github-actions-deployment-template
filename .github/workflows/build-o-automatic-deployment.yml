@@ -21,6 +21,7 @@ jobs:
       - name: get-npm-version
         uses: martinbeentjes/npm-get-version-action@master
         id: package-version
+        run: echo
       - uses: actions/checkout@master
       - uses: actions/setup-node@master
         with:
