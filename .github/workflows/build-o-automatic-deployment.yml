@@ -21,9 +21,9 @@ jobs:
       - uses: actions/checkout@master
 
       # Use this GitHub Action
-      - name: get-npm-version
-        uses: martinbeentjes/npm-get-version-action@master
-        id: package-version
+      # - name: get-npm-version
+        # uses: martinbeentjes/npm-get-version-action@master
+        # id: package-version
 
       - uses: actions/setup-node@master
         with:
@@ -40,4 +40,4 @@ jobs:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: eu-west-2
-        run: aws s3 sync ./output/ s3://ccontrol-games/${GITHUB_REPOSITORY##*/}/v${{ steps.package-version.outputs.current-version}} --delete --exclude=*.git/* --exclude=*.github/*
+        run: aws s3 sync ./output/ s3://ccontrol-games/${GITHUB_REPOSITORY##*/} --delete --exclude=*.git/* --exclude=*.github/*
