@@ -22,8 +22,8 @@ jobs:
       - uses: actions/setup-node@master
         with:
           node-version: 14
-      - uses: martinbeentjes/npm-get-version-action@master
-        name: get-npm-version
+      - name: get-npm-version
+        uses: martinbeentjes/npm-get-version-action@master
         id: package-version
       - uses: shimataro/ssh-key-action@v2
         with:
